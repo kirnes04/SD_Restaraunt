@@ -38,6 +38,7 @@ namespace SD_Restaurant.Controllers
         // Получить меню (Доступно всем).
         [HttpGet]
         [Route("menu")]
+        [Authorize(Roles = "manager,chef,customer")]
         public async Task<ActionResult<IEnumerable<string>>> GetMenu()
         {
             if (_context.Dish == null)
